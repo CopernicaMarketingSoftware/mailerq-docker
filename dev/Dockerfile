@@ -23,9 +23,6 @@ EXPOSE 25 80 443
 # and rabbitmq
 EXPOSE 5672 15672
 
-# link the external config file
-RUN rm /etc/mailerq/config.txt && ln -s /external/config.txt /etc/mailerq/config.txt
-
 # copy our entry script to the machine
 COPY entry.sh /usr/bin/mq-entry.sh
 
