@@ -15,6 +15,7 @@ service rabbitmq-server start
 if [[ -z "${RABBITMQ_PASSWORD}" ]]; then
     # randomly generate a password for the mailerq user
     pass=`openssl rand -base64 32`
+    echo 'Generated random password for RabbitMQ user `mailerq`:' $pass
     rabbitmqctl add_user mailerq $pass
 else
     # pass was defined by docker
