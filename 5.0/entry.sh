@@ -13,8 +13,6 @@
 # start the rabbitmq server and add the 'mailerq' user for external connection
 service rabbitmq-server start
 
-cat /etc/mailerq/config.txt
-
 # process the username and password in the storage
 rabbitmqctl add_user mailerq `cat /external/rabbitmq-password.txt`
 rabbitmqctl set_permissions -p / mailerq ".*" ".*" ".*"
