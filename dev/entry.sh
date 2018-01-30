@@ -13,11 +13,9 @@
 if [[ -n "${LICENSE_KEY}" ]]; then
     echo "y" | mailerq --fetch-license ${LICENSE_KEY}
 elif [[ ! -f /etc/mailerq/license.txt ]]; then
-    echo "license file does not exist"
+    echo "License file does not exist. Either pass a LICENSE_KEY variable using -e or bind /etc/mailerq/license.txt using -v."
+    exit 1
 fi
-
-echo "saved license file"
-cat /etc/mailerq/license.txt
 
 # start the rabbitmq server and add the 'mailerq' user for external connection
 service rabbitmq-server start
