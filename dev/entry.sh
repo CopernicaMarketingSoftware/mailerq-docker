@@ -8,6 +8,17 @@
 #   @copyright 2018 Copernica BV
 #
 
+
+# first we are going to try to fetch the licnse; if this fails, we're lost anyway
+if [[ -n "${LICENSE_KEY}" ]]; then
+    echo "y" | mailerq --fetch-license ${LICENSE_KEY}
+elif [[ ! -f /etc/mailerq/license.txt ]]; then
+    echo "license file does not exist"
+fi
+
+echo "saved license file"
+cat /etc/mailerq/license.txt
+
 # start the rabbitmq server and add the 'mailerq' user for external connection
 service rabbitmq-server start
 
@@ -27,4 +38,4 @@ rabbitmqctl set_permissions -p / mailerq ".*" ".*" ".*"
 rabbitmqctl set_user_tags mailerq administrator
 
 # startup the mailerq (-dev for now, much easier testing)
-mailerq-dev
+mailerq
