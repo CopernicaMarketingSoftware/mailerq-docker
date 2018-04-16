@@ -28,5 +28,8 @@ EXPOSE 5672 15672
 # copy our entry script to the machine
 COPY entry.sh /usr/bin/mq-entry.sh
 
+# make the temp dir for all the downloads
+RUN mkdir -p /tmp/downloads
+
 # bootstrap our entry point and the command to run
 ENTRYPOINT ["/usr/bin/mq-entry.sh"]
