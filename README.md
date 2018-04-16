@@ -31,6 +31,7 @@ To keep the database settings between runs, the database should be bound to a fi
 be done by adding ```-v `pwd`/database.sqlite:/var/lib/mailerq/database.sqlite``` to the command.
 
 ### Versions
-- `latest` - Always points to the most recent stable version
+- `latest` - Always points to the most recent stable version, currently `5.1`.
+- `5.1` - MailerQ 5.1
 - `5.0` - MailerQ 5.0
 - `dev` - Nightly build
