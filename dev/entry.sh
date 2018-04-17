@@ -35,9 +35,6 @@ fi
 rabbitmqctl set_permissions -p / mailerq ".*" ".*" ".*"
 rabbitmqctl set_user_tags mailerq administrator
 
-# update the database
-mailerq --upgrade-database
-
 # startup the mailerq dev, which is the nightly
 echo "Starting MailerQ (dev)"
 mailerq
