@@ -15,9 +15,14 @@ On startup, a random password is generated for the contained RabbitMQ instance. 
 
 #### Example
 First pull the image using `docker pull mailerq/mailerq:latest`, then run 
-```docker run -e LICENSE_KEY=<license-key-here> -it mailerq/mailerq:latest```
+```
+docker run -e LICENSE_KEY=<license-key-here> -it mailerq/mailerq:latest
+```
 
-If you get `The license file does not contain IP addresses that are configured on this server`, add the `--net=host` flag add the ```docker run --net=host -e LICENSE_KEY=<license-key-here> -it mailerq/mailerq:latest```
+If you get `The license file does not contain IP addresses that are configured on this server`, add the `--net=host` flag, for example
+```
+docker run --net=host -e LICENSE_KEY=<license-key-here> -it mailerq/mailerq:latest
+```
 
 #### Database
 To persist the database settings between runs, the database should be bound to a file on the host machine. This can be done by adding ```-v `pwd`/database.sqlite:/var/lib/mailerq/database.sqlite``` to the command.
