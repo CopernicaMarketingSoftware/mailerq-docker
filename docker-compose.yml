@@ -1,0 +1,62 @@
+version: '2.1'
+services: 
+    # create the mailerq service  
+    mailerq:
+        image: "mailerq/mailerq:latest-unit"
+        container_name: mailerq_unit
+        depends_on:
+            rabbitmq:
+                condition: service_healthy
+            sql:
+                condition: service_healthy
+            mongo:
+                condition: service_healthy
+        healthcheck:
+            test: ["CMD", "curl", "http://localhost"]
+        volumes:
+            - ./license.txt:/etc/mailerq/license.txt
+        command: [
+            "mailerq", 
+            "--database-address", "mysql://root:password@mailerq_mysql/mailerq", 
+            "--rabbitmq-address", "amqp://guest:guest@mailerq_rabbitmq/", 
+            "--cluster-address", "amqp://guest:guest@mailerq_rabbitmq/",
+            "--storage-address", "mongodb://mailerq_mongo/mailerq/messages/"    
+        ]
+
+
+    # we want rabbitmq and rabbitmq-management to be as small as possible (alpine releases)
+    rabbitmq:
+        image: "rabbitmq:alpine"
+        container_name: mailerq_rabbitmq
+        healthcheck:
+            test: ["CMD", "rabbitmqctl", "cluster_status"]
+            interval: 5s
+            timeout: 30s
+            retries: 6
+    rabbitmq-management:
+        image: "rabbitmq:management-alpine"
+        container_name: mailerq_rabbitmq_management
+        depends_on:
+            - rabbitmq
+    # sql and mongo don't have alpine releases (yet)
+    sql:
+        image: mysql
+        container_name: mailerq_mysql
+        restart: always
+        environment:
+            MYSQL_DATABASE: mailerq
+            MYSQL_ROOT_PASSWORD: password
+        healthcheck:
+            test: ["CMD", "mysqlcheck"]
+            interval: 5s
+            timeout: 30s
+            retries: 6
+    mongo:
+        image: mongo
+        restart: always
+        container_name: mailerq_mongo
+        healthcheck:
+            test: ["CMD", "echo", "exit", "|", "mongo"]
+            interval: 5s
+            timeout: 30s
+            retries: 6
