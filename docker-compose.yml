@@ -26,18 +26,13 @@ services:
 
     # we want rabbitmq and rabbitmq-management to be as small as possible (alpine releases)
     rabbitmq:
-        image: "rabbitmq:alpine"
+        image: "rabbitmq:management-alpine"
         container_name: mailerq_rabbitmq
         healthcheck:
             test: ["CMD", "rabbitmqctl", "cluster_status"]
             interval: 5s
             timeout: 30s
             retries: 6
-    rabbitmq-management:
-        image: "rabbitmq:management-alpine"
-        container_name: mailerq_rabbitmq_management
-        depends_on:
-            - rabbitmq
     # sql and mongo don't have alpine releases (yet)
     sql:
         image: mysql

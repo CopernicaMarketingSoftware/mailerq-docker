@@ -1,0 +1,82 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  # Expose the management HTTP port on each node
+  name: mailerq-web
+  labels:
+    app: mailerq
+spec:
+  ports:
+  - port: 80
+    name: http
+  - port: 443
+    name: https
+  selector:
+    app: mailerq
+  type: NodePort # Or LoadBalancer in production w/ proper security
+---
+apiVersion: v1
+kind: Service
+metadata:
+  # The required headless service for StatefulSets
+  name: mailerq-smtp
+  labels:
+    app: mailerq
+spec:
+  ports:
+  - port: 25
+    name: smtp
+  clusterIP: None
+  selector:
+    app: mailerq
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: mailerq
+spec:
+  serviceName: "mailerq"
+  template:
+    metadata:
+      labels:
+        app: mailerq
+    spec:
+      containers:
+      - name: mailerq
+        image: mailerq/mailerq:latest-unit
+        command:
+              - /bin/sh
+              - -c
+              - >
+                echo "${LICENSE}" > /etc/mailerq/license.txt;
+                mailerq
+                --database-address "mysql://root:${MYSQL_PASSWORD}@mysql/mailerq"
+                --rabbitmq-address "amqp://guest:guest@rabbitmq/"
+        env:
+        - name: LICENSE
+          valueFrom:
+            secretKeyRef:
+              name: mailerq-config
+              key: license
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-pass
+              key: password
+        ports:
+        - containerPort: 25
+          name: smtp
+        volumeMounts:
+        - name: mailerq
+          mountPath: /var/lib/mailerq
+  volumeClaimTemplates:
+  - metadata:
+      name: mailerq
+      annotations:
+        volume.alpha.kubernetes.io/storage-class: anything
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi # make this bigger in production
