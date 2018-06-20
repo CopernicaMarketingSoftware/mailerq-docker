@@ -11,6 +11,14 @@ RUN apt-key add /tmp/copernica.key
 RUN echo "deb https://packages.copernica.com/debian stable main" | tee /etc/apt/sources.list.d/copernica.list
 RUN apt-get update && apt-get install -y mailerq-5.0
 
+# install additional dependencies
+RUN apt-get update && apt-get install -y libmysqlclient20 libmongoc-1.0 libmariadb2 libpq5 
+
+# install couchbase
+RUN apt-get update && apt-get install -y lsb-release
+RUN curl http://packages.couchbase.com/releases/couchbase-release/couchbase-release-1.0-4-amd64.deb --output couchbase.deb && dpkg -i couchbase.deb && rm couchbase.deb
+RUN apt-get update && apt-get install -y libcouchbase2-bin
+
 # expose the ports for mailerq. note that this doesn't really 'expose' them but is more
 # of a general hint towards the ports that will likely be used, for documentation purposes.
 EXPOSE 25 80 443 
