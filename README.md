@@ -1,4 +1,6 @@
 # Dockerfiles for MailerQ
+![MailerQ | The most powerful MTA](https://media.copernica.com/logos/mailerq-logo.svg "MailerQ | The most powerful MTA")
+
 This repository contains the Dockerfiles for MailerQ from version 5.0 and upward. Automatically built versions are available at at [Docker Hub](https://hub.docker.com/r/mailerq/mailerq/). 
 
 Currently, it is a completely self-contained version of MailerQ, for testing purposes.
@@ -28,7 +30,8 @@ docker run --net=host -e LICENSE_KEY=<license-key-here> -it mailerq/mailerq:late
 To persist the database settings between runs, the database should be bound to a file on the host machine. This can be done by adding ```-v `pwd`/database.sqlite:/var/lib/mailerq/database.sqlite``` to the command.
 
 ### Versions
-- [`latest`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.1/standalone/Dockerfile) - Always points to the most recent stable version, currently `5.1`.
+- [`latest`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.2/standalone/Dockerfile) - Always points to the most recent stable version, currently `5.2`.
+- [`5.2`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.2/standalone/Dockerfile) - MailerQ 5.2
 - [`5.1`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.1/standalone/Dockerfile) - MailerQ 5.1
 - [`5.0`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.0/standalone/Dockerfile) - MailerQ 5.0
 - [`dev`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/dev/Dockerfile) - Nightly build
@@ -47,5 +50,6 @@ This will show a prompt asking you to save your license. Type `y`, and your lice
 
 ### Versions
 - [`latest-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.1/unit/Dockerfile) - Always points to the most recent stable version, currently `5.1`.
+- [`5.2-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.2/unit/Dockerfile) - MailerQ 5.2
 - [`5.1-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.1/unit/Dockerfile) - MailerQ 5.1
 - [`5.0-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.0/unit/Dockerfile) - MailerQ 5.0
