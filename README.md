@@ -11,7 +11,7 @@ This image is a self-contained version to run MailerQ locally or in the cloud. I
 ### Getting started
 The easiest method to get started is to copy the license key from [here](https://www.mailerq.com/product/license/trial). If a LICENSE_KEY environmental variable is supplied, MailerQ will automatically fetch the appropriate license. 
 
-Alternatively, the file itself can be downloaded, and bound using `-v` on container startup to `/etc/mailerq/license.txt`. See our [documentation](https://www.mailerq.com/documentation/5.1/configuration) for appropriate configuration file values. 
+Alternatively, the file itself can be downloaded, and bound using `-v` on container startup to `/etc/mailerq/license.txt`. See our [documentation](https://www.mailerq.com/documentation/5.3/configuration) for appropriate configuration file values. 
 
 On startup, a random password is generated for the contained RabbitMQ instance. To make this password a fixed value, the `RABBITMQ_PASSWORD` environmental variable can be passed, which will then be used instead.
 
@@ -30,7 +30,8 @@ docker run --net=host -e LICENSE_KEY=<license-key-here> -it mailerq/mailerq:late
 To persist the database settings between runs, the database should be bound to a file on the host machine. This can be done by adding ```-v `pwd`/database.sqlite:/var/lib/mailerq/database.sqlite``` to the command.
 
 ### Versions
-- [`latest`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.2/standalone/Dockerfile) - Always points to the most recent stable version, currently `5.2`.
+- [`latest`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.3/standalone/Dockerfile) - Always points to the most recent stable version, currently `5.3`.
+- [`5.3`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.3/standalone/Dockerfile) - MailerQ 5.3
 - [`5.2`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.2/standalone/Dockerfile) - MailerQ 5.2
 - [`5.1`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.1/standalone/Dockerfile) - MailerQ 5.1
 - [`5.0`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.0/standalone/Dockerfile) - MailerQ 5.0
@@ -49,7 +50,8 @@ docker run --net=host -v </path/to/config/folder>:/etc/mailerq/ -it mailerq/mail
 This will show a prompt asking you to save your license. Type `y`, and your license will be saved. You are now done! To run MailerQ, simply run the last command but remove the `--fetch-license` part with your license key. 
 
 ### Versions
-- [`latest-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.1/unit/Dockerfile) - Always points to the most recent stable version, currently `5.1`.
-- [`5.2-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.2/unit/Dockerfile) - MailerQ 5.2
+- [`latest-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.3/unit/Dockerfile) - Always points to the most recent stable version, currently `5.3`.
+- [`5.3-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.3/unit/Dockerfile) - MailerQ 5.3
+- [`5.2-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.2/unit/Dockerfile) - MailerQ 5.3
 - [`5.1-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.1/unit/Dockerfile) - MailerQ 5.1
 - [`5.0-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/5.0/unit/Dockerfile) - MailerQ 5.0
