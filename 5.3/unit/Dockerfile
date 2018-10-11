@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y strace curl apt-transport-https
 ADD https://packages.copernica.com/copernica.key /tmp/copernica.key
 RUN apt-key add /tmp/copernica.key
 RUN echo "deb https://packages.copernica.com/debian stable main" | tee /etc/apt/sources.list.d/copernica.list
-RUN apt-get update && apt-get install -y mailerq-5.2
+RUN apt-get update && apt-get install -y mailerq-5.3
 
 # install additional dependencies for databases and such
 RUN apt-get update && apt-get install -y libmysqlclient20 libmongoc-1.0 libmariadb2 libpq5 
