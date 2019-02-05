@@ -7,7 +7,7 @@ RUN yum install -y wget epel-release
 # install mailerq
 RUN wget https://packages.copernica.com/rpm/copernica.repo -O /etc/yum.repos.d/copernica.repo
 RUN yum -y update
-RUN yum -y install mailerq
+RUN yum -y install mailerq-5.3
 
 # expose the ports for mailerq. note that this doesn't really 'expose' them but is more
 # of a general hint towards the ports that will likely be used, for documentation purposes.

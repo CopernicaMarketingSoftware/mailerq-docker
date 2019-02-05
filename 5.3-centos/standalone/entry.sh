@@ -23,9 +23,7 @@ fi
 # check if a password for the mailerq user has been provided
 if [[ -z "${RABBITMQ_PASSWORD}" ]]; then
     # randomly generate a password for the mailerq user
-    pass=`openssl rand -base64 32`
-    echo 'Generated random password for RabbitMQ user `mailerq`:' $pass
-    rabbitmqctl add_user mailerq $pass
+    rabbitmqctl add_user mailerq mailerq
 else
     # pass was defined by docker
     rabbitmqctl add_user mailerq $RABBITMQ_PASSWORD
@@ -37,4 +35,4 @@ rabbitmqctl set_user_tags mailerq administrator
 
 # startup the mailerq 
 echo "Starting up MailerQ"
-mailerq
+mailerq "$@"
