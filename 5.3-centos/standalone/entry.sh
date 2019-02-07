@@ -10,6 +10,8 @@
 
 # start the rabbitmq server and add the 'mailerq' user for external connection
 /usr/sbin/rabbitmq-server & 
+
+# rabbitmq needs to have started fully, should be really soon
 sleep 5
 
 # first we are going to try to fetch the licnse; if this fails, we're lost anyway
@@ -20,19 +22,10 @@ elif [[ ! -f /etc/mailerq/license.txt ]]; then
     exit 1
 fi
 
-# check if a password for the mailerq user has been provided
-if [[ -z "${RABBITMQ_PASSWORD}" ]]; then
-    # randomly generate a password for the mailerq user
-    rabbitmqctl add_user mailerq mailerq
-else
-    # pass was defined by docker
-    rabbitmqctl add_user mailerq $RABBITMQ_PASSWORD
-fi
-
-# process the username and password in the storage
+# add mailerq user with permissions
+rabbitmqctl add_user mailerq mailerq
 rabbitmqctl set_permissions -p / mailerq ".*" ".*" ".*"
 rabbitmqctl set_user_tags mailerq administrator
 
-# startup the mailerq 
-echo "Starting up MailerQ"
-mailerq "$@"
+# we execute the command
+exec "$@"

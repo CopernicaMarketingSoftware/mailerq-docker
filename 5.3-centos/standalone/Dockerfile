@@ -35,3 +35,4 @@ RUN mkdir -p /tmp/downloads
 
 # bootstrap our entry point and the command to run
 ENTRYPOINT ["/usr/bin/mq-entry.sh"]
+CMD rm -f /tmp/mailerq.pid && mailerq --lock=/tmp/mailerq.pid

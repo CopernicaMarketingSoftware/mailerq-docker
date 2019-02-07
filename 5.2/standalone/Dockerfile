@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Copernica BV <michael.vanderwerve@copernica.com>
 
 # fix apt-specific things on docker
@@ -6,10 +6,9 @@ MAINTAINER Copernica BV <michael.vanderwerve@copernica.com>
 RUN apt-get update && apt-get install -y strace curl apt-transport-https
 
 # install the rabbitmq (standalone only)
-# we pin the version to 3.6.14-1, because it is the latest version that still
-# supports erlang 19
-RUN curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.deb.sh | bash 
-RUN apt-get install rabbitmq-server=3.6.14-1 -y
+# https://www.rabbitmq.com/which-erlang.html
+RUN curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.deb.sh | bash
+RUN apt-get install rabbitmq-server=3.7.6-1 -y
 RUN service rabbitmq-server start
 RUN rabbitmq-plugins enable rabbitmq_management --offline
 
@@ -33,3 +32,4 @@ RUN mkdir -p /tmp/downloads
 
 # bootstrap our entry point and the command to run
 ENTRYPOINT ["/usr/bin/mq-entry.sh"]
+CMD rm -f /tmp/mailerq.pid && mailerq --lock=/tmp/mailerq.pid

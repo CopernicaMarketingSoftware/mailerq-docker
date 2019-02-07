@@ -5,7 +5,7 @@
 #   externally accessed.
 #
 #   @author Michael van der Werve <michael.vanderwerve@copernica.com>
-#   @copyright 2018 Copernica BV
+#   @copyright 2018 - 2019 Copernica BV
 #
 
 # first we are going to try to fetch the licnse; if this fails, we're lost anyway
@@ -16,21 +16,13 @@ elif [[ ! -f /etc/mailerq/license.txt ]]; then
     exit 1
 fi
 
-# start the rabbitmq server and add the 'mailerq' user for external connection
+# start rabbitmq
 service rabbitmq-server start
 
-# check if a password for the mailerq user has been provided
-if [[ -z "${RABBITMQ_PASSWORD}" ]]; then
-    rabbitmqctl add_user mailerq mailerq
-else
-    # pass was defined by docker
-    rabbitmqctl add_user mailerq $RABBITMQ_PASSWORD
-fi
-
-# process the username and password in the storage
+# add mailerq user with permissions
+rabbitmqctl add_user mailerq mailerq
 rabbitmqctl set_permissions -p / mailerq ".*" ".*" ".*"
 rabbitmqctl set_user_tags mailerq administrator
 
-# startup the mailerq 
-echo "Starting up MailerQ"
-mailerq "$@"
+# we execute the command
+exec "$@"

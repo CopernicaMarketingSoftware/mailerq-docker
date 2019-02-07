@@ -21,4 +21,4 @@ RUN mkdir -p /tmp/downloads
 VOLUME ["/etc/mailerq", "/var/log/mailerq"] 
 
 # bootstrap our entry point and the command to run
-CMD mailerq
+CMD rm -f /tmp/mailerq.pid && mailerq --lock=/tmp/mailerq.pid
