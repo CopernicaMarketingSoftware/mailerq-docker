@@ -3,7 +3,7 @@ MAINTAINER Copernica BV <michael.vanderwerve@copernica.com>
 
 # fix apt-specific things on docker
 #ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y strace curl apt-transport-https
+RUN apt-get update && apt-get install -y strace curl apt-transport-https libidn11
 
 # install the rabbitmq (standalone only)
 # https://www.rabbitmq.com/which-erlang.html
