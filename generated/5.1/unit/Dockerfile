@@ -1,9 +1,9 @@
-# we take 18.04 as a base operating system
-FROM ubuntu:18.04
+# we take 16.04 as a base operating system
+FROM ubuntu:16.04
 MAINTAINER Copernica BV <michael.vanderwerve@mailerq.com>
 
 # fix apt-specific things on docker
-RUN apt-get update && apt-get install -y ca-certificates gnupg libidn11 curl apt-transport-https lsb-release && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates gnupg libidn11 curl apt-transport-https lsb-release && rm -rf /var/lib/apt/lists/*
 
 # add the copernica repository and install mailerq
 ADD https://packages.copernica.com/copernica.key /tmp/copernica.key
@@ -13,8 +13,8 @@ RUN echo "deb https://packages.copernica.com/debian stable main" | tee /etc/apt/
 RUN apt-get update && apt-get install --no-install-recommends -y mailerq-`cat /version` && rm -rf /var/lib/apt/lists/*
 
 # install additional dependencies for databases and such
-RUN curl http://packages.couchbase.com/releases/couchbase-release/couchbase-release-1.0-4-amd64.deb --output couchbase.deb && dpkg -i couchbase.deb && rm couchbase.deb
-RUN apt-get update && apt-get install -y libmysqlclient20 libmongoc-1.0 libmariadb2 libpq5 libcouchbase2-bin && rm -rf /var/lib/apt/lists/*
+RUN curl http://packages.couchbase.com/releases/couchbase-release/couchbase-release-1.0-6-amd64.deb --output couchbase.deb && dpkg -i couchbase.deb && rm couchbase.deb
+RUN apt-get update && apt-get install --no-install-recommends -y libmysqlclient20 libmongoc-1.0 libmariadb2 libpq5 libcouchbase2-bin && rm -rf /var/lib/apt/lists/*
 
 # expose the ports for mailerq. note that this doesn't really 'expose' them but is more
 # of a general hint towards the ports that will likely be used, for documentation purposes.
