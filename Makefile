@@ -1,4 +1,4 @@
-VERSIONS = 5.0 5.1 5.2 5.3 #5.4
+VERSIONS = 5.0 5.1 5.2 5.3 5.4
 GENERATE_STANDALONE = $(patsubst %,generated/%/standalone, ${VERSIONS}) 
 GENERATE_UNIT = $(patsubst %,generated/%/unit, ${VERSIONS}) 
 

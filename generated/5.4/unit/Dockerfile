@@ -10,7 +10,7 @@ ADD https://packages.copernica.com/copernica.key /tmp/copernica.key
 COPY version /version
 RUN apt-key add /tmp/copernica.key
 RUN echo "deb https://packages.copernica.com/debian stable main" | tee /etc/apt/sources.list.d/copernica.list
-RUN apt-get update && apt-get install --no-install-recommends -y mailerq-`cat /version`
+RUN apt-get update && apt-get install --no-install-recommends -y mailerq-`cat /version` && rm -rf /var/lib/apt/lists/*
 
 # install additional dependencies for databases and such
 RUN curl http://packages.couchbase.com/releases/couchbase-release/couchbase-release-1.0-4-amd64.deb --output couchbase.deb && dpkg -i couchbase.deb && rm couchbase.deb
