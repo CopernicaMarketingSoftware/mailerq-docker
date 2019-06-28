@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 MAINTAINER Copernica BV <michael.vanderwerve@mailerq.com>
 
 # fix apt-specific things on docker
-RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates gnupg libidn11 curl apt-transport-https lsb-release && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates gnupg libidn11 libmagic1 curl apt-transport-https lsb-release && rm -rf /var/lib/apt/lists/*
 
 # add the copernica repository and install mailerq
 ADD https://packages.copernica.com/copernica.key /tmp/copernica.key
