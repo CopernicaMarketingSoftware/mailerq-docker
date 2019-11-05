@@ -57,6 +57,6 @@ This will show a prompt asking you to save your license. Type `y`, and your lice
 - [`5.5-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.5/unit/Dockerfile) - MailerQ 5.5
 - [`5.4-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.4/unit/Dockerfile) - MailerQ 5.4
 - [`5.3-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.3/unit/Dockerfile) - MailerQ 5.3
-- [`5.2-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.2/unit/Dockerfile) - MailerQ 5.3
+- [`5.2-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.2/unit/Dockerfile) - MailerQ 5.2
 - [`5.1-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.1/unit/Dockerfile) - MailerQ 5.1
 - [`5.0-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.0/unit/Dockerfile) - MailerQ 5.0
