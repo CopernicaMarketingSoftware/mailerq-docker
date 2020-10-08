@@ -28,7 +28,8 @@ docker run --net=host -e LICENSE_KEY=<license-key-here> -it mailerq/mailerq:late
 To persist the database settings between runs, the database should be bound to a file on the host machine. This can be done by adding ```-v `pwd`/database.sqlite:/var/lib/mailerq/database.sqlite``` to the command.
 
 ### Versions
-- [`latest`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.9/standalone/Dockerfile) - Always points to the most recent stable version, currently `5.9`.
+- [`latest`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.10/standalone/Dockerfile) - Always points to the most recent stable version, currently `5.10`.
+- [`5.10`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.10/standalone/Dockerfile) - MailerQ 5.10
 - [`5.9`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.9/standalone/Dockerfile) - MailerQ 5.9
 - [`5.8`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.8/standalone/Dockerfile) - MailerQ 5.8
 - [`5.7`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.7/standalone/Dockerfile) - MailerQ 5.7
@@ -53,7 +54,8 @@ docker run --net=host -v </path/to/config/folder>:/etc/mailerq/ -it mailerq/mail
 This will show a prompt asking you to save your license. Type `y`, and your license will be saved. You are now done! To run MailerQ, simply run the last command but remove the `--fetch-license` part with your license key. 
 
 ### Versions
-- [`latest-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.9/unit/Dockerfile) - Always points to the most recent stable version, currently `5.9`.
+- [`latest-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.10/unit/Dockerfile) - Always points to the most recent stable version, currently `5.10`.
+- [`5.10-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.10/unit/Dockerfile) - MailerQ 5.10
 - [`5.9-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.9/unit/Dockerfile) - MailerQ 5.9
 - [`5.8-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.8/unit/Dockerfile) - MailerQ 5.8
 - [`5.7-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.7/unit/Dockerfile) - MailerQ 5.7
