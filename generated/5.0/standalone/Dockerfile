@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN=true
 
 # fix apt-specific things on docker
-RUN apt-get update && apt-get install --no-install-recommends -y wget ca-certificates strace curl apt-transport-https libidn11 libmagic1 gnupg && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install --no-install-recommends -y wget ca-certificates strace curl apt-transport-https libidn11 libmagic1 libxml2 gnupg && rm -rf /var/lib/apt/lists/*
 
 # install the rabbitmq (standalone only)
 # https://www.rabbitmq.com/which-erlang.html
