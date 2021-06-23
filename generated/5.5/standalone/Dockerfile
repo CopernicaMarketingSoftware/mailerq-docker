@@ -55,7 +55,7 @@ EXPOSE 5672 15672
 COPY entry.sh /usr/bin/mq-entry.sh
 
 # make the temp dir for all the downloads
-RUN mkdir -p /tmp/downloads
+RUN mkdir -p /tmp/downloads && chown mailerq:mailerq /tmp/downloads
 
 # create volumes by default
 VOLUME ["/etc/mailerq", "/var/log/mailerq", "/tmp/downloads"] 
