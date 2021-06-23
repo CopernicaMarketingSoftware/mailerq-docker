@@ -1,6 +1,6 @@
 # use ubuntu 18.04 as a base
 FROM ubuntu:18.04
-MAINTAINER Copernica BV <michael.vanderwerve@mailerq.com>
+MAINTAINER Copernica BV <rafal.goslawski@mailerq.com>
 
 # everything is non-interactive
 ENV DEBIAN_FRONTEND=noninteractive 

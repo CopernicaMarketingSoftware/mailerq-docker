@@ -1,6 +1,6 @@
 # we take 16.04 as a base operating system
 FROM ubuntu:16.04
-MAINTAINER Copernica BV <michael.vanderwerve@mailerq.com>
+MAINTAINER Copernica BV <rafal.goslawski@mailerq.com>
 
 # fix apt-specific things on docker
 RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates gnupg libidn11 libmagic1 libxml2 curl apt-transport-https lsb-release && rm -rf /var/lib/apt/lists/*
