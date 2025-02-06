@@ -16,3 +16,6 @@ RUN echo "deb [arch=amd64 signed-by=/usr/share/keyrings/mailerq-packages.gpg] ht
 
 # install MailerQ mimify
 RUN apt-get update && apt-get install -y mailerq-mimify && rm -rf /var/lib/apt/lists/*
+
+# the command that starts everything
+ENTRYPOINT ["mimify"]
