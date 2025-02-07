@@ -27,23 +27,6 @@ docker run --net=host -e LICENSE_KEY=<license-key-here> -it mailerq/mailerq:late
 #### Database
 To persist the database settings between runs, the database should be bound to a file on the host machine. This can be done by adding ```-v `pwd`/database.sqlite:/var/lib/mailerq/database.sqlite``` to the command.
 
-### Versions
-- [`latest`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.13/standalone/Dockerfile) - Always points to the most recent stable version, currently `5.13`.
-- [`5.13`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.13/standalone/Dockerfile) - MailerQ 5.13
-- [`5.12`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.12/standalone/Dockerfile) - MailerQ 5.12
-- [`5.11`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.11/standalone/Dockerfile) - MailerQ 5.11
-- [`5.10`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.10/standalone/Dockerfile) - MailerQ 5.10
-- [`5.9`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.9/standalone/Dockerfile) - MailerQ 5.9
-- [`5.8`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.8/standalone/Dockerfile) - MailerQ 5.8
-- [`5.7`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.7/standalone/Dockerfile) - MailerQ 5.7
-- [`5.6`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.6/standalone/Dockerfile) - MailerQ 5.6
-- [`5.5`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.5/standalone/Dockerfile) - MailerQ 5.5
-- [`5.4`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.4/standalone/Dockerfile) - MailerQ 5.4
-- [`5.3`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.3/standalone/Dockerfile) - MailerQ 5.3
-- [`5.2`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.2/standalone/Dockerfile) - MailerQ 5.2
-- [`5.1`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.1/standalone/Dockerfile) - MailerQ 5.1
-- [`5.0`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.0/standalone/Dockerfile) - MailerQ 5.0
-
 ## Unit image for MailerQ
 This image is an image which can be safely run in production. As opposed to the self-contained image above, in production setting the RabbitMQ server runs separately from the MailerQ server. This is mainly because MailerQ may be ephemeral, and multiple MailerQ instances may connect to a single RabbitMQ instance, all working on the same queue and communication with each other over RabbitMQ. 
 
@@ -55,20 +38,3 @@ docker run --net=host -v </path/to/config/folder>:/etc/mailerq/ -it mailerq/mail
 ```
 
 This will show a prompt asking you to save your license. Type `y`, and your license will be saved. You are now done! To run MailerQ, simply run the last command but remove the `--fetch-license` part with your license key. 
-
-### Versions
-- [`latest-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.13/unit/Dockerfile) - Always points to the most recent stable version, currently `5.13`.
-- [`5.13-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.13/unit/Dockerfile) - MailerQ 5.13
-- [`5.12-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.12/unit/Dockerfile) - MailerQ 5.12
-- [`5.11-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.11/unit/Dockerfile) - MailerQ 5.11
-- [`5.10-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.10/unit/Dockerfile) - MailerQ 5.10
-- [`5.9-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.9/unit/Dockerfile) - MailerQ 5.9
-- [`5.8-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.8/unit/Dockerfile) - MailerQ 5.8
-- [`5.7-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.7/unit/Dockerfile) - MailerQ 5.7
-- [`5.6-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.6/unit/Dockerfile) - MailerQ 5.6
-- [`5.5-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.5/unit/Dockerfile) - MailerQ 5.5
-- [`5.4-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.4/unit/Dockerfile) - MailerQ 5.4
-- [`5.3-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.3/unit/Dockerfile) - MailerQ 5.3
-- [`5.2-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.2/unit/Dockerfile) - MailerQ 5.2
-- [`5.1-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.1/unit/Dockerfile) - MailerQ 5.1
-- [`5.0-unit`](https://github.com/CopernicaMarketingSoftware/mailerq-docker/blob/master/generated/5.0/unit/Dockerfile) - MailerQ 5.0
