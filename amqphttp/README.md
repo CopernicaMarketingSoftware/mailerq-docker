@@ -23,5 +23,5 @@ See all supported options in [documentation](https://www.mailerq.com/documentati
 #### Example
 ```bash
 docker build ./MailerQ-AmqpHttp/ -t amqphttp
-docker run /path/to/minimal-config.txt:/etc/copernica/amqphttp.txt amqphttp
+docker run -v /path/to/minimal-config.txt:/etc/copernica/amqphttp.txt amqphttp
 ```
