@@ -21,11 +21,11 @@ All options can be supplied in the system-wide config file, via environment vari
  - the environment variable "AMQPDELAYER_RABBITMQ_ADDRESS"
 
 AmqpDelayer reads messages from a RabbitMQ message queue, holds them for a while, and then publishes them back to RabbitMQ. The following options can be used to configure this:
- - rabbitmq-address: the address in amqp://user:password@hostname/vhost format.
- - rabbitmq-queue: the name of the queue from which messages are read.
- - rabbitmq-exchange: the name of the exchange to which messages are published after their delay.
- - rabbitmq-routingkey: the routing key used to publish messages.
- - rabbitmq-usereplyto: whether to respect the "reply-to" message property.
+ - **rabbitmq-address**: the address in amqp://user:password@hostname/vhost format.
+ - **rabbitmq-queue**: the name of the queue from which messages are read.
+ - **rabbitmq-exchange**: the name of the exchange to which messages are published after their delay.
+ - **rabbitmq-routingkey**: the routing key used to publish messages.
+ - **rabbitmq-usereplyto**: whether to respect the "reply-to" message property.
 If you leave the routing key empty, messages will be published with their original routing key. If the usereplyto is set to true, messages with a routing-key set in their envelope will be sent back to this reply-to exchange and the exchange from the config file is ignored.
 
 #### License Key
