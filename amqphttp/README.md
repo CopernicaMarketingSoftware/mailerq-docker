@@ -20,6 +20,7 @@ The application reads out the MailerQ result queue from RabbitMQ, converts the m
  - **rabbitmq-exchange**: the exchange to which the converted messages are published.
  - **rabbitmq-routingkey**: the name of the routing key for the converted messages.
  - **rabbitmq-qos**: quality of service / how many messages to consume.
+
 The queue name can also be formatted as "exchange:routingkey". If you use this format, all messages published to the specified exchange with the specified routing key are consumed.
 
 See all supported options in [documentation](https://www.mailerq.com/documentation/5.13/mailerq-amqphttp)
