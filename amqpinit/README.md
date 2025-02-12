@@ -9,5 +9,5 @@ You typically run this script with one command line argument, and you pipe the J
 #### Example
 ```bash
 docker build ./MailerQ-AmqpInit/ -t amqpinit
-docker run amqp://user:password@hostname/vhost < input.json
+docker run amqpinit amqp://user:password@hostname/vhost < input.json
 ```
