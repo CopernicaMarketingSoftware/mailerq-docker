@@ -3,11 +3,6 @@
 # Dockerfiles for MailerQ AmqpDelayer
 This repository contains the Dockerfile for MailerQ AmqpDelayer. Automatically built versions are available at [Docker Hub](https://hub.docker.com/r/mailerq/amqpdelayer/). 
 
-## Getting started
-The easiest method to get started is to copy the license key from [here](https://www.mailerq.com/product/license/trial). If a LICENSE_KEY environmental variable is supplied, MailerQ will automatically fetch the appropriate license. 
-
-Alternatively, the file itself can be downloaded, and bound using `-v` on container startup to `/etc/mailerq/license.txt`. See our [documentation](https://www.mailerq.com/documentation/5.13/configuration) for appropriate configuration file values. 
-
 ## Setup
 You need a minimal configuration file so AmqpDelayer can connect to RabbitMQ.
 ```yaml
@@ -31,11 +26,8 @@ If you leave the routing key empty, messages will be published with their origin
 
 See all supported options in [documentation](https://www.mailerq.com/documentation/5.13/mailerq-amqpdelayer)
 
-#### License Key
-A requirement, next to the config file, is the MailerQ license key or file. You can either mount an existing license file or give the `LICENSE_KEY` environment variable to the Dockerfile so it can generate a license.
-
 #### Example
 ```bash
 docker build ./MailerQ-AmqpDelayer/ -t amqpdelayer
-docker run -e LICENSE_KEY=<your_mailerq_license_key> -v /path/to/minimal-config.txt:/etc/copernica/amqpdelayer.txt amqpdelayer
+docker run /path/to/minimal-config.txt:/etc/copernica/amqpdelayer.txt amqpdelayer
 ```
