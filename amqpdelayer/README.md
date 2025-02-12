@@ -26,6 +26,7 @@ AmqpDelayer reads messages from a RabbitMQ message queue, holds them for a while
  - **rabbitmq-exchange**: the name of the exchange to which messages are published after their delay.
  - **rabbitmq-routingkey**: the routing key used to publish messages.
  - **rabbitmq-usereplyto**: whether to respect the "reply-to" message property.
+
 If you leave the routing key empty, messages will be published with their original routing key. If the usereplyto is set to true, messages with a routing-key set in their envelope will be sent back to this reply-to exchange and the exchange from the config file is ignored.
 
 See all supported options in [documentation](https://www.mailerq.com/documentation/5.13/mailerq-amqpdelayer)
