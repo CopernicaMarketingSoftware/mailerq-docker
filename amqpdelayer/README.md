@@ -29,5 +29,5 @@ See all supported options in [documentation](https://www.mailerq.com/documentati
 #### Example
 ```bash
 docker build ./MailerQ-AmqpDelayer/ -t amqpdelayer
-docker run /path/to/minimal-config.txt:/etc/copernica/amqpdelayer.txt amqpdelayer
+docker run -v /path/to/minimal-config.txt:/etc/copernica/amqpdelayer.txt amqpdelayer
 ```
