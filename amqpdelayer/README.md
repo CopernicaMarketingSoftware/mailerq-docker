@@ -1,6 +1,6 @@
 ![MailerQ | The most powerful MTA](https://media.copernica.com/logos/mailerq-logo.svg "MailerQ | The most powerful MTA")
 
-# Dockerfiles for MailerQ AmqpDelayer
+## Dockerfiles for MailerQ AmqpDelayer
 
 This repository contains the Dockerfile for MailerQ AmqpDelayer. Automatically built versions are available at [Docker Hub](https://hub.docker.com/r/mailerq/amqpdelayer/).
 
@@ -38,7 +38,7 @@ Besides environment variables, you can also configure AmqpDelayer using the foll
 *   **Configuration File:**  Mount a custom configuration file to `/etc/copernica/amqpdelayer.txt`.
 *   **Command Line Arguments:** Pass settings directly as command-line arguments to the `docker run` command. For example: `docker run mailerq/amqpdelayer --rabbitmq-address amqp://...`
 
-#### Example
+## Example
 
 ```bash
 # Build the Docker image
