@@ -10,7 +10,7 @@ The MailerQ AmqpDelayer is typically configured using environment variables. Whi
 
 The default configuration file is stored at `/etc/copernica/amqpdelayer.txt` inside the container. All settings from this file can be overridden using environment variables.
 
-**Configuration Options**
+#### Configuration Options
 
 The following options can be configured for the MailerQ AmqpDelayer.  These settings control how the AmqpDelayer reads messages from a RabbitMQ message queue, holds them for a while, and then publishes them back to RabbitMQ.  Environment variables are the preferred method for configuring these options.
 
@@ -22,7 +22,7 @@ The following options can be configured for the MailerQ AmqpDelayer.  These sett
 
 See all supported options in [documentation](https://www.mailerq.com/documentation/5.13/mailerq-amqpdelayer)
 
-**Overriding Configuration with Environment Variables**
+#### Overriding Configuration with Environment Variables
 
 Any setting from the `/etc/copernica/amqpdelayer.txt` configuration file can be overridden using environment variables. To create the environment variable name:
 
@@ -31,7 +31,7 @@ Any setting from the `/etc/copernica/amqpdelayer.txt` configuration file can be 
 
 For example, the `rabbitmq-address` setting becomes the `AMQPDELAYER_RABBITMQ_ADDRESS` environment variable.
 
-**Alternative Configuration Methods**
+#### Alternative Configuration Methods
 
 Besides environment variables, you can also configure AmqpDelayer using the following methods:
 
